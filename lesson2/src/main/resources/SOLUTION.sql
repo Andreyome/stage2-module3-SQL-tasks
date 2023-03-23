@@ -28,10 +28,10 @@ INSERT INTO PAYMENT (TYPE_ID, AMOUNT, PAYMENT_DATE, STUDENT_ID) VALUES ( 1, 50, 
 
 
 insert into MARK (student_id, SUBJECT_ID, MARK) values (2, 1, 8);
-insert into MARK (student_id, SUBJECT_ID, MARK) values (4, 4,  5);
-insert into MARK (student_id, SUBJECT_ID, MARK) values (5, 3,  9);
-insert into MARK (student_id, SUBJECT_ID, MARK) values (8, 6,  4);
-insert into MARK (student_id, SUBJECT_ID, MARK) values (9, 5,  9);
+insert into MARK (student_id, SUBJECT_ID, MARK) values (4, 6,  5);
+insert into MARK (student_id, SUBJECT_ID, MARK) values (5, 2,  9);
+insert into MARK (student_id, SUBJECT_ID, MARK) values (8, 5,  4);
+insert into MARK (student_id, SUBJECT_ID, MARK) values (9, 3,  9);
 insert into MARK (student_id, SUBJECT_ID, MARK) values (1, 8,  6);
 insert into MARK (student_id, SUBJECT_ID, MARK) values (7, 7,  2);
 
