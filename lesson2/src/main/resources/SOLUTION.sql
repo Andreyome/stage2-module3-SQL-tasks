@@ -32,7 +32,7 @@ insert into MARK (student_id, SUBJECT_ID, MARK) values (4, 6,  5);
 insert into MARK (student_id, SUBJECT_ID, MARK) values (5, 2,  9);
 insert into MARK (student_id, SUBJECT_ID, MARK) values (8, 5,  4);
 insert into MARK (student_id, SUBJECT_ID, MARK) values (9, 3,  9);
-insert into MARK (student_id, SUBJECT_ID, MARK) values (1, 8,  6);
-insert into MARK (student_id, SUBJECT_ID, MARK) values (7, 7,  2);
+insert into MARK (student_id, SUBJECT_ID, MARK) values (1, 3,  6);
+insert into MARK (student_id, SUBJECT_ID, MARK) values (7, 5,  2);
 
 select (s.NAME, P3.NAME) from STUDENT s inner join PAYMENT P2 on s.ID = P2.STUDENT_ID inner join PAYMENTTYPE P3 on P3.ID = P2.TYPE_ID;
