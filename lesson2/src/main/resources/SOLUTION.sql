@@ -1,112 +1,38 @@
-INSERT INTO student (name,groupnumber,birthday)
-VALUES('John',1,CURRENT_DATE()),
-('Chris',1,CURRENT_DATE()),
-('Carl',1,CURRENT_DATE()),
-('Oliver',2,CURRENT_DATE()),
-('James',2,CURRENT_DATE()),
-('Lucas',2,CURRENT_DATE()),
-('Henry',2,CURRENT_DATE()),
-('Jacob',3,CURRENT_DATE()),
-('Logan',3,CURRENT_DATE()),
-('Billy',4,CURRENT_DATE()),
-('Mary',4,CURRENT_DATE()),
-('Henric',5,CURRENT_DATE()),
-('Teddy',5,CURRENT_DATE()),
-('Brann',5,CURRENT_DATE());
-INSERT INTO subject(name,grade)
-VALUE('Art',1),
-('Geography',2),
-('History',2),
-('PE',3),
-('Math',3),
-('Science',4),
-('IT',4),
-('Chemistry',5),
-('Biology',5);
-INSERT INTO paymenttypes(name)
-VALUES('DAILY'),
-('WEEKLY'),
-('MONTHLY');
-INSERT INTO payment(student_id,amount,type_id)
-VALUES(
-(SELECT id FROM student WHERE name='John'),
-500.1,
-(SELECT id FROM paymenttypes WHERE name = 'WEEKLY')
-),
-(
-(SELECT id FROM student WHERE name='Oliver'),
-1000.2,
-(SELECT id FROM paymenttypes WHERE name = 'MONTHLY')
-),
-(
-(SELECT id FROM student WHERE name='Henry'),
-530.5,
-(SELECT id FROM paymenttypes WHERE name = 'WEEKLY')
-),
-(
-(SELECT id FROM student WHERE name='James'),
-50.0,
-(SELECT id FROM paymenttypes WHERE name = 'DAILY')
-),
-(
-(SELECT id FROM student WHERE name='Teddy'),
-540.0,
-(SELECT id FROM paymenttypes WHERE name = 'WEEKLY')
-),
-(
-(SELECT id FROM student WHERE name='Henric'),
-500.0,
-(SELECT id FROM paymenttypes WHERE name = 'MONTHLY')
-),
-(
-(SELECT id FROM student WHERE name='Brann'),
-100.0,
-(SELECT id FROM paymenttypes WHERE name = 'WEEKLY')
-),
-(
-(SELECT id FROM student WHERE name='Jacob'),
-30.0,
-(SELECT id FROM paymenttypes WHERE name = 'DAILY')
-);
-INSERT INTO mark (student_id,subject_id,mark)
-VALUES
-(
-(SELECT id FROM student WHERE name = 'Chris'),
-(SELECT id FROM subject WHERE name = 'Art'),
-8
-),
-(
-(SELECT id FROM student WHERE name = 'Oliver'),
-(SELECT id FROM subject WHERE name = 'History'),
-5
-),
-(
-(SELECT id FROM student WHERE name = 'James'),
-(SELECT id FROM subject WHERE name = 'Geography'),
-9
-),
-(
-(SELECT id FROM student WHERE name = 'Jacob'),
-(SELECT id FROM subject WHERE name = 'Math'),
-4
-),
-(
-(SELECT id FROM student WHERE name = 'Logan'),
-(SELECT id FROM subject WHERE name = 'PE'),
-9
-),
-(
-(SELECT id FROM student WHERE name = 'Mary'),
-(SELECT id FROM subject WHERE name = 'Art'),
-2
-),
-(
-(SELECT id FROM student WHERE name = 'Billy'),
-(SELECT id FROM subject WHERE name = 'Chemistry'),
-3
-),
-(
-(SELECT id FROM student WHERE name = 'Brann'),
-(SELECT id FROM subject WHERE name = 'IT'),
-9
-);
+INSERT INTO STUDENT ( NAME, BIRTHDAY, GROUPNUMBER) values ( 'John', '2013-01-03', 1);
+INSERT INTO STUDENT ( NAME, BIRTHDAY, GROUPNUMBER) values ( 'Chris', '2013-01-03', 1);
+INSERT INTO STUDENT ( NAME, BIRTHDAY, GROUPNUMBER) values ( 'Carl', '2013-01-03', 1);
+INSERT INTO STUDENT ( NAME, BIRTHDAY, GROUPNUMBER) values ( 'Oliver', '2013-01-03', 2);
+INSERT INTO STUDENT ( NAME, BIRTHDAY, GROUPNUMBER) values ( 'James', '2013-01-03', 2);
+INSERT INTO STUDENT ( NAME, BIRTHDAY, GROUPNUMBER) values ( 'Lucas', '2013-01-03', 2);
+INSERT INTO STUDENT ( NAME, BIRTHDAY, GROUPNUMBER) values ( 'Henry', '2013-01-03', 2);
+INSERT INTO STUDENT ( NAME, BIRTHDAY, GROUPNUMBER) values ( 'Jacob', '2013-01-03', 3);
+INSERT INTO STUDENT ( NAME, BIRTHDAY, GROUPNUMBER) values ( 'Logan', '2013-01-03', 3);
+INSERT INTO STUDENT ( NAME, BIRTHDAY, GROUPNUMBER) values ( 'Kate', '2013-01-03', 4);
+INSERT INTO STUDENT ( NAME, BIRTHDAY, GROUPNUMBER) values ( 'Yura', '2013-01-03', 5);
+
+INSERT INTO SUBJECT ( name, grade)  values ( 'Art', 1);
+INSERT INTO SUBJECT ( name, grade)  values (  'Geography', 2 );
+INSERT INTO SUBJECT ( name, grade)  values (  'PE', 3);
+INSERT INTO SUBJECT ( name, grade)  values (  'Science', 4 );
+INSERT INTO SUBJECT ( name, grade)  values (  'Math', 5);
+INSERT INTO SUBJECT ( name, grade)  values (  'History', 5 );
+
+INSERT INTO PAYMENTTYPE (ID, NAME) values ( 'DAILY');
+INSERT INTO PAYMENTTYPE (ID, NAME) values (  'WEEKLY' );
+INSERT INTO PAYMENTTYPE (ID, NAME) values (  'MONTHLY' );
+
+INSERT INTO PAYMENT (TYPE_ID, AMOUNT, PAYMENT_DATE, STUDENT_ID) VALUES ( 2, 50, '2013-01-03' ,  1);
+INSERT INTO PAYMENT (TYPE_ID, AMOUNT, PAYMENT_DATE, STUDENT_ID) VALUES ( 3, 50, '2013-01-03' ,  4);
+INSERT INTO PAYMENT (TYPE_ID, AMOUNT, PAYMENT_DATE, STUDENT_ID) VALUES ( 2, 50, '2013-01-03' ,  7);
+INSERT INTO PAYMENT (TYPE_ID, AMOUNT, PAYMENT_DATE, STUDENT_ID) VALUES ( 1, 50, '2013-01-03' ,  5);
+
+
+insert into MARK ( SUBJECT_ID, MARK) values (  8);
+insert into MARK ( SUBJECT_ID, MARK) values (  5);
+insert into MARK ( SUBJECT_ID, MARK) values (  9);
+insert into MARK ( SUBJECT_ID, MARK) values (  4);
+insert into MARK ( SUBJECT_ID, MARK) values (  9);
+insert into MARK ( SUBJECT_ID, MARK) values (  6);
+insert into MARK ( SUBJECT_ID, MARK) values (  2);
+
+select (s.NAME, P3.NAME) from STUDENT s inner join PAYMENT P2 on s.ID = P2.STUDENT_ID inner join PAYMENTTYPE P3 on P3.ID = P2.TYPE_ID;
